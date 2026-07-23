@@ -1,11 +1,11 @@
-id = "aether"
-name = "Aether"
+id = "eiwa"
+name = "Eiwa"
 version = "0.1.0"
 schema_version = 1
 authors = ["Leo Douglas"]
-description = "Aether language support."
+description = "Eiwa language support."
 repository = "https://github.com/eiwa-lang/zed-extension"
 
-[grammars.aether]
+[grammars.eiwa]
 repository = "https://github.com/eiwa-lang/tree-sitter"
-commit = "74267fcd2204e511eb1bbff16b67d8e642918442"
+commit = "0e9eb23f62f71adef80fa70d1dc02c3b58b71757"

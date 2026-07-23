@@ -1,11 +1,11 @@
-# zed-aether
+# zed-eiwa
 
-[Aether](https://github.com/leodouglas/aether) language support for [Zed](https://github.com/zed-industries/zed).
+[Eiwa](https://github.com/leodouglas/eiwa) language support for [Zed](https://github.com/zed-industries/zed).
 
 ## Features
 
-- Syntax highlighting for `.ae` files via [tree-sitter-aether](../tree-sitter-aether)
-  (a fork of tree-sitter-kotlin extended with Aether syntax)
+- Syntax highlighting for `.ei` files via [tree-sitter-eiwa](../tree-sitter-eiwa)
+  (a fork of tree-sitter-kotlin extended with Eiwa syntax)
 - ES6-style imports (`import { X } from "mod"`), `test` and `lib` blocks,
   ternary expressions, union types (`Int | Null`), bare `try`/`catch`
 - Bracket matching and auto-closing pairs

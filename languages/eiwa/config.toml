@@ -1,6 +1,6 @@
-name = "Aether"
-grammar = "aether"
-path_suffixes = ["ae"]
+name = "Eiwa"
+grammar = "eiwa"
+path_suffixes = ["ei"]
 line_comments = ["// "]
 brackets = [
     { start = "(", end = ")", close = true, newline = true },
