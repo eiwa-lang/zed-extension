@@ -1,5 +1,5 @@
-; Aether highlights — based on tree-sitter-kotlin grammar (Aether's syntax is Kotlin-inspired).
-; Aether-specific keywords (from, lib, test, of) are not Kotlin grammar tokens,
+; Eiwa highlights — based on tree-sitter-kotlin grammar (Eiwa's syntax is Kotlin-inspired).
+; Eiwa-specific keywords (from, lib, test, of) are not Kotlin grammar tokens,
 ; so they are matched as identifiers below.
 
 ; Identifiers
@@ -15,7 +15,7 @@
 ; `super` keyword inside classes
 (super_expression) @variable.builtin
 
-; Aether-specific declarations
+; Eiwa-specific declarations
 (import_header
   "import" @include
   "from" @include)
@@ -100,7 +100,7 @@
     (navigation_suffix
       (simple_identifier) @function)))
 
-; Aether standard library builtins
+; Eiwa standard library builtins
 (call_expression
   (simple_identifier) @function.builtin
   (#any-of? @function.builtin
