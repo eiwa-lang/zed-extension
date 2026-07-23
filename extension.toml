@@ -8,4 +8,4 @@ repository = "https://github.com/eiwa-lang/zed-extension"
 
 [grammars.eiwa]
 repository = "https://github.com/eiwa-lang/tree-sitter"
-commit = "0e9eb23f62f71adef80fa70d1dc02c3b58b71757"
+commit = "a909f32e0276c3ae50276542ed8c5e421da84c71"
