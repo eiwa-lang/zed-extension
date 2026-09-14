@@ -4,7 +4,7 @@
 
 (type_declaration
   "type" @context
-  (type_identifier) @name) @item
+  (type_identifier)? @name) @item
 
 (contract_declaration
   "contract" @context
@@ -16,7 +16,19 @@
 
 (object_declaration
   "object" @context
+  (type_identifier)? @name) @item
+
+(enum_declaration
+  "enum" @context
   (type_identifier) @name) @item
+
+(lib_declaration
+  "lib" @context
+  (type_identifier) @name) @item
+
+(test_declaration
+  "test" @context
+  (string_literal) @name) @item
 
 (enum_entry
   (simple_identifier) @name) @item

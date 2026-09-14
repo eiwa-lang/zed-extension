@@ -163,6 +163,7 @@
   "skill"
   "implement"
   "class"
+  "enum"
   "object"
   "companion"
   "import"
@@ -220,8 +221,10 @@
   "?"
   "!!"
   ".."
+  "..."
   "->"
   "|"
+  "+"
 ] @operator
 
 [

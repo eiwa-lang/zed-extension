@@ -8,16 +8,21 @@
   (a fork of tree-sitter-kotlin extended with Eiwa syntax)
 - ES6-style imports (`import { X } from "mod"`), `test` and `lib` blocks,
   ternary expressions, union types (`Int | Null`), bare `try`/`catch`
+- Lambda-style `for` (`for (xs) { it * 2 }`, incl. map-style `for` as a value),
+  `break` with a value, untyped `catch (e)`
+- Composition type system: `type` (generics, `: Contract` + `+ Skill` headers),
+  `contract`, `skill`, first-class `enum`, type-bound companions
+  (`type Config { } object { }`, `object S { } type (...) { }`)
+- Varargs (`Int...`), platform targets (`object("windows") X`, `lib("posix") Y`),
+  `of` map pairs (`["k" of "v"]`)
 - Bracket matching and auto-closing pairs
 - Comment toggling (`//` and `/* */`)
-- Symbol outline (classes, objects, functions, properties)
+- Symbol outline (types, contracts, skills, enums, objects, libs, tests,
+  functions, properties)
 
 ## Limitations
 
 - No language server (LSP) yet: no autocomplete, go-to-definition or diagnostics.
-- Two declarations on the same line without a newline between them
-  (e.g. `} class Foo {`) don't parse, since the underlying Kotlin grammar
-  requires statement separators.
 
 ## Installing (dev extension)
 
