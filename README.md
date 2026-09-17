@@ -9,7 +9,7 @@
 - ES6-style imports (`import { X } from "mod"`), `test` and `lib` blocks,
   ternary expressions, union types (`Int | Null`), bare `try`/`catch`
 - Lambda-style `for` (`for (xs) { it * 2 }`, incl. map-style `for` as a value),
-  `break` with a value, untyped `catch (e)`
+  `leave` with a value, untyped `catch (e)`
 - Composition type system: `type` (generics, `: Contract` + `+ Skill` headers),
   `contract`, `skill`, first-class `enum`, type-bound companions
   (`type Config { } object { }`, `object S { } type (...) { }`)
