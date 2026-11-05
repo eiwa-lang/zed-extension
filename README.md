@@ -20,9 +20,35 @@
 - Symbol outline (types, contracts, skills, enums, objects, libs, tests,
   functions, properties)
 
-## Limitations
+## Language server (`eiwa-lsp`)
 
-- No language server (LSP) yet: no autocomplete, go-to-definition or diagnostics.
+This extension registers the Eiwa-native language server (`eiwa-lsp`,
+stdio LSP 3.17): diagnostics via `eiwac check`, hover, completion,
+go-to-definition and document symbols for `.ei` files.
+
+1. Build the server (repo `eiwa-lang/lsp/`): `eiwa build`
+   (or `eiwac build -o bin/eiwa-lsp src/main.ei`).
+2. Install this folder as a dev extension
+   (palette → `zed: install dev extension`).
+3. Point Zed at the binary in `settings.json`
+   (GUI apps don't inherit your shell `PATH`, so use an absolute path;
+   this also makes the `lsp.eiwa-lsp` key valid):
+
+```json
+{
+  "lsp": {
+    "eiwa-lsp": {
+      "binary": { "path": "/abs/path/to/eiwa-lsp" }
+    }
+  }
+}
+```
+
+4. Reload the window, open a `.ei` file, save to see diagnostics.
+   Logs: palette → `dev: open language server logs` → `eiwa-lsp`.
+
+`eiwa-lsp` shells out to `eiwac check` for diagnostics, so `eiwac` must be
+on `PATH` too (same absolute-path caveat applies; `EIWAC` env overrides it).
 
 ## Installing (dev extension)
 

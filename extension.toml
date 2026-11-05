@@ -1,6 +1,6 @@
 id = "eiwa"
 name = "Eiwa"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["Leo Douglas"]
 description = "Eiwa language support."
@@ -9,3 +9,7 @@ repository = "https://github.com/eiwa-lang/zed-extension"
 [grammars.eiwa]
 repository = "https://github.com/eiwa-lang/tree-sitter"
 commit = "14838721d12da98c8eeddd325b3031c754fcfbd3"
+
+[language_servers.eiwa-lsp]
+name = "eiwa-lsp"
+languages = ["Eiwa"]
