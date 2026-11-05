@@ -1,0 +1,31 @@
+{
+  "$schema": "https://zed.dev/schema/icon_themes/v0.3.0.json",
+  "name": "Eiwa Icons",
+  "author": "Leo Douglas",
+  "themes": [
+    {
+      "name": "Eiwa Icons",
+      "appearance": "dark",
+      "file_suffixes": {
+        "ei": "eiwa"
+      },
+      "file_icons": {
+        "eiwa": {
+          "path": "./icons/eiwa.svg"
+        }
+      }
+    },
+    {
+      "name": "Eiwa Icons",
+      "appearance": "light",
+      "file_suffixes": {
+        "ei": "eiwa"
+      },
+      "file_icons": {
+        "eiwa": {
+          "path": "./icons/eiwa.svg"
+        }
+      }
+    }
+  ]
+}
