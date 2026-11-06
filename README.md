@@ -26,13 +26,13 @@ This extension registers the Eiwa-native language server (`eiwa-lsp`,
 stdio LSP 3.17): diagnostics via `eiwac check`, hover, completion,
 go-to-definition and document symbols for `.ei` files.
 
-1. Build the server (repo `eiwa-lang/lsp/`): `eiwa build`
-   (or `eiwac build -o bin/eiwa-lsp src/main.ei`).
-2. Install this folder as a dev extension
-   (palette → `zed: install dev extension`).
-3. Point Zed at the binary in `settings.json`
-   (GUI apps don't inherit your shell `PATH`, so use an absolute path;
-   this also makes the `lsp.eiwa-lsp` key valid):
+No setup needed: on first use the extension downloads the latest
+[`eiwa-lang/eiwa` release](https://github.com/eiwa-lang/eiwa/releases)
+tarball for your platform into its work dir and runs `eiwa-lsp` from there,
+with `EIWAC` pointed at the bundled `eiwac` (used for diagnostics).
+To use your own build instead, set an absolute path in `settings.json`
+(GUI apps don't inherit your shell `PATH`; this also makes the
+`lsp.eiwa-lsp` key valid — a settings binary overrides the download):
 
 ```json
 {
@@ -44,11 +44,8 @@ go-to-definition and document symbols for `.ei` files.
 }
 ```
 
-4. Reload the window, open a `.ei` file, save to see diagnostics.
-   Logs: palette → `dev: open language server logs` → `eiwa-lsp`.
-
-`eiwa-lsp` shells out to `eiwac check` for diagnostics, so `eiwac` must be
-on `PATH` too (same absolute-path caveat applies; `EIWAC` env overrides it).
+Open a `.ei` file, save to see diagnostics.
+Logs: palette → `dev: open language server logs` → `eiwa-lsp`.
 
 ## Installing (dev extension)
 
