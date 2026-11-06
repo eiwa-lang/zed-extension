@@ -52,6 +52,20 @@ impl EiwaExtension {
         }
     }
 
+    /// Local install first: reuse `eiwa-lsp` from the user's `PATH`
+    /// (e.g. installed via `install.sh` or built from source) instead of
+    /// downloading a duplicate. Returns `(server, eiwac?)`.
+    fn local_server(worktree: &Worktree) -> Option<(String, Option<String>)> {
+        let server = worktree.which("eiwa-lsp")?;
+        let eiwac = worktree
+            .shell_env()
+            .into_iter()
+            .find(|(k, _)| k == "EIWAC")
+            .map(|(_, v)| v)
+            .or_else(|| worktree.which("eiwac"));
+        Some((server, eiwac))
+    }
+
     /// Ensures a released `eiwa-lsp` (+ `eiwac` for diagnostics) is present
     /// in the extension work dir, downloading the latest GitHub release when
     /// needed. Returns `(server_binary, eiwac_binary)`.
@@ -123,11 +137,22 @@ impl zed::Extension for EiwaExtension {
     fn language_server_command(
         &mut self,
         language_server_id: &LanguageServerId,
-        _worktree: &Worktree,
+        worktree: &Worktree,
     ) -> Result<Command> {
-        let (server, eiwac) = self.ensure_server(language_server_id)?;
         // A `binary.path` in user settings overrides this command entirely,
-        // so manual setups keep working untouched.
+        // so manual setups keep working untouched. Otherwise prefer a local
+        // install over downloading a duplicate into the work dir.
+        if let Some((server, eiwac)) = Self::local_server(worktree) {
+            let env = eiwac
+                .map(|e| vec![("EIWAC".to_string(), e)])
+                .unwrap_or_default();
+            return Ok(Command {
+                command: server,
+                args: Vec::new(),
+                env,
+            });
+        }
+        let (server, eiwac) = self.ensure_server(language_server_id)?;
         Ok(Command {
             command: server,
             args: Vec::new(),

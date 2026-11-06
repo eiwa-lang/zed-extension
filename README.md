@@ -26,13 +26,18 @@ This extension registers the Eiwa-native language server (`eiwa-lsp`,
 stdio LSP 3.17): diagnostics via `eiwac check`, hover, completion,
 go-to-definition and document symbols for `.ei` files.
 
-No setup needed: on first use the extension downloads the latest
-[`eiwa-lang/eiwa` release](https://github.com/eiwa-lang/eiwa/releases)
-tarball for your platform into its work dir and runs `eiwa-lsp` from there,
-with `EIWAC` pointed at the bundled `eiwac` (used for diagnostics).
-To use your own build instead, set an absolute path in `settings.json`
-(GUI apps don't inherit your shell `PATH`; this also makes the
-`lsp.eiwa-lsp` key valid — a settings binary overrides the download):
+No setup needed. On first use the extension resolves the server in this
+order (no duplicate installs):
+
+1. `binary.path` from your `settings.json`, when set (absolute path;
+   GUI apps don't inherit your shell `PATH`);
+2. `eiwa-lsp` already on your `PATH` (e.g. installed via `install.sh` or
+   built from source) — with `EIWAC` from your shell env, else `eiwac`
+   from `PATH`, for diagnostics;
+3. otherwise it downloads the latest
+   [`eiwa-lang/eiwa` release](https://github.com/eiwa-lang/eiwa/releases)
+   tarball for your platform into its work dir and runs `eiwa-lsp` from
+   there, with `EIWAC` pointed at the bundled `eiwac`.
 
 ```json
 {
